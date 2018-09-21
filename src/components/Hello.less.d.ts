@@ -1,7 +1,8 @@
-export interface IHelloLess {
+export interface IHelloLess{
   'hello': string;
   'hello-red': string;
   'hello-green': string;
 }
 
-export const locals: IHelloLess;
+
+export const locals:Record<string,string>;

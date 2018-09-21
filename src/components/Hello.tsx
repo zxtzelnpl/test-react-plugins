@@ -2,11 +2,9 @@ import * as React from "react";
 
 import * as classNames from "classnames/bind";
 
-const styles = require("./Hello.less");
-
+import * as styles from "./Hello.less";
 
 let cx = classNames.bind(styles);
-
 
 export interface HelloProps {
     compiler: string;
