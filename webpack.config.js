@@ -34,7 +34,7 @@ module.exports = {
         use: [
           'style-loader',
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: {
               modules: true,
             }
@@ -74,7 +74,10 @@ module.exports = {
 
   /*在线服务*/
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, '.'),
+    staticOptions:{
+      redirect:true
+    },
     compress: true,
     port: 9000
   }
