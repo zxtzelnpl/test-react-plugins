@@ -42,7 +42,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
-    "less" : "stylelint src/components/**/*.less --syntax less"
+    "less" : "stylelint **/*.less --syntax less"
   },
   "lint-staged":{
     "src/components/**/*.less": "stylelint --syntax less"
