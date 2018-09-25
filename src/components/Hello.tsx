@@ -6,7 +6,6 @@ const styles = require('./Hello.less');
 
 let cx = classNames.bind(styles);
 
-
 export interface HelloProps {
     compiler: string;
     framework: string;

@@ -7,25 +7,24 @@ import PhotoSwipe  from './components/PhotoSwipe';
 // import SimpleTransition from './reactMotionDemos/SimpleTransition';
 // import ChatHeads from './reactMotionDemos/ChatHeads';
 // import DraggableBalls from './reactMotionDemos/DraggableBalls';
-import RequestAndCancel from './components/RequestAndCancel'
+// import RequestAndCancel from './components/RequestAndCancel'
+import ProxyComponent from './ES6Component/ProxyComponent';
 
 import * as classNames from 'classnames/bind';
 const styles = require('./index.less');
 const cx = classNames.bind(styles);
 
-const App = ()=><React.Fragment>
+const App = () => <React.Fragment>
     {/*<Hello compiler="TypeScript" framework="React" />*/}
     {/*<SimpleTransition compiler="TypeScript" framework="React" />*/}
     {/*<ChatHeads compiler="TypeScript" framework="React"/>*/}
     {/*<DraggableBalls />*/}
     {/*<RequestAndCancel />*/}
-    <PhotoSwipe />
-</React.Fragment>
-
-
-
+    {/*<PhotoSwipe />*/}
+    <ProxyComponent />
+</React.Fragment>;
 
 ReactDOM.render(
     <App />,
-    document.getElementById("root")
+    document.getElementById('root'),
 );

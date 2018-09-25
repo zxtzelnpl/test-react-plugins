@@ -58,9 +58,11 @@
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
     "test": "node_modules/.bin/jest",
+    "lint:style":"stylelint src/**/*.less --syntax less",
+    "lint-fix:style":"stylelint src/**/*.less --syntax less --fix",
+    "lint-fix:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx --fix",
     "lint-staged": "lint-staged",
-    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx",
-    "lint-fix:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx --fix"
+    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx"
   },
   "lint-staged": {
     "src/**/*.tsx": [

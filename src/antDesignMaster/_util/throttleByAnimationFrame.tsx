@@ -19,23 +19,23 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
     return throttled;
 }
 
-export function throttleByAnimationFrameDecorator(){
-    return function(target:any,key:string,descriptor:any){
+export function throttleByAnimationFrameDecorator() {
+    return function(target: any, key: string, descriptor: any) {
         let fn = descriptor.value;
         let definingProperty = false;
         return {
-            configurable:true,
-            get(){
-                if(definingProperty || this === target.prototype || this.hasOwnProperty(key)){
+            configurable: true,
+            get() {
+                if (definingProperty || this === target.prototype || this.hasOwnProperty(key)) {
                     return fn;
                 }
 
                 let boundFn = throttleByAnimationFrame(fn.bind(this));
                 definingProperty = true;
                 Object.defineProperty(this, key, {
-                    value:boundFn,
-                    configurable:true,
-                    writable:true,
+                    value: boundFn,
+                    configurable: true,
+                    writable: true,
                 });
                 definingProperty = false;
                 return boundFn;

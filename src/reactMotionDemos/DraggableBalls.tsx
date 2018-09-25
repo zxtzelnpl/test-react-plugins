@@ -1,111 +1,110 @@
 import * as React from 'react';
-import {Motion, spring} from 'react-motion';
-import {range} from 'lodash';
+import { Motion, spring } from 'react-motion';
+import { range } from 'lodash';
 
 import * as classNames from 'classnames/bind';
 const styles =  require('./DraggableBalls.less');
 const cx = classNames.bind(styles);
 
-const springSetting1 = {stiffness: 180, damping: 10};
-const springSetting2 = {stiffness: 120, damping: 17};
-function reinsert(arr:number[],from:number,to:number){
+const springSetting1 = { stiffness: 180, damping: 10 };
+const springSetting2 = { stiffness: 120, damping: 17 };
+function reinsert(arr: number[], from: number, to: number) {
     const _arr = arr.slice(0);
     const val = _arr[from];
-    _arr.splice(from,1);
-    _arr.splice(to,0,val);
+    _arr.splice(from, 1);
+    _arr.splice(to, 0, val);
     return _arr;
 }
 
-function clamp(n:number,min:number,max:number){
-    return Math.max(Math.min(n,max),min);
+function clamp(n: number, min: number, max: number) {
+    return Math.max(Math.min(n, max), min);
 }
 
 const allColors = [
     '#EF767A', '#456990', '#49BEAA', '#49DCB1', '#EEB868', '#EF767A', '#456990',
     '#49BEAA', '#49DCB1', '#EEB868', '#EF767A',
-]
-const [count,width,height] = [11, 70, 90];
+];
+const [count, width, height] = [11, 70, 90];
 // indexed by visual position
 const layout = range(count).map(n => {
-    const row = Math.floor(n/3);
-    const col = n%3;
-    return [width*col,height*row];
-})
+    const row = Math.floor(n / 3);
+    const col = n % 3;
+    return [width * col, height * row];
+});
 
 export interface P {
 
 }
 interface S {
-    mouseXY:number[],
-    mouseCircleDelta:number[],
-    lastPress:any,
-    isPressed?:any,
-    order:any
+    mouseXY: number[];
+    mouseCircleDelta: number[];
+    lastPress: any;
+    isPressed?: any;
+    order: any;
 }
 
-export default class DraggableBalls extends React.Component<P,S>{
+export default class DraggableBalls extends React.Component<P, S> {
 
-    constructor(props:P) {
+    constructor(props: P) {
         super(props);
         this.state = {
-            mouseXY:[0,0],
-            mouseCircleDelta:[0,0],// difference between mouse and circle pos for x + y coords, for dragging
-            lastPress:null, // key of the last pressed component
-            order:range(count), // index: visual position. value: component key/id
+            mouseXY: [0, 0],
+            mouseCircleDelta: [0, 0], // difference between mouse and circle pos for x + y coords, for dragging
+            lastPress: null, // key of the last pressed component
+            order: range(count), // index: visual position. value: component key/id
         };
-    };
+    }
 
     componentDidMount() {
-        window.addEventListener('touchmove',this.handleTouchMove);
-        window.addEventListener('touchend',this.handleMouseUp);
-        window.addEventListener('mousemove',this.handleMouseMove);
-        window.addEventListener('mouseup',this.handleMouseUp);
-    };
+        window.addEventListener('touchmove', this.handleTouchMove);
+        window.addEventListener('touchend', this.handleMouseUp);
+        window.addEventListener('mousemove', this.handleMouseMove);
+        window.addEventListener('mouseup', this.handleMouseUp);
+    }
 
-    handleTouchStart = (key:React.MouseEvent,pressLocation:any,e:any) => {
+    handleTouchStart = (key: React.MouseEvent, pressLocation: any, e: any) => {
         this.handleMouseDown(key, pressLocation, e.touches[0]);
-    };
+    }
 
-    handleTouchMove = (e:any) => {
+    handleTouchMove = (e: any) => {
         e.preventDefault();
         this.handleMouseMove(e.touches[0]);
-    };
+    }
 
-    handleMouseMove = ({pageX,pageY}:any) => {
-        const {order, lastPress, isPressed, mouseCircleDelta: [dx, dy]} = this.state;
+    handleMouseMove = ({ pageX, pageY }: any) => {
+        const { order, lastPress, isPressed, mouseCircleDelta: [dx, dy] } = this.state;
         if (isPressed) {
             const mouseXY = [pageX - dx, pageY - dy];
             const col = clamp(Math.floor(mouseXY[0] / width), 0, 2);
             const row = clamp(Math.floor(mouseXY[1] / height), 0, Math.floor(count / 3));
             const index = row * 3 + col;
             const newOrder = reinsert(order, order.indexOf(lastPress), index);
-            this.setState({mouseXY, order: newOrder});
+            this.setState({ mouseXY, order: newOrder });
         }
-    };
+    }
 
-    handleMouseDown = (key:any, [pressX, pressY]:any, {pageX, pageY}:any) => {
+    handleMouseDown = (key: any, [pressX, pressY]: any, { pageX, pageY }: any) => {
         this.setState({
             lastPress: key,
             isPressed: true,
             mouseCircleDelta: [pageX - pressX, pageY - pressY],
             mouseXY: [pressX, pressY],
         });
-    };
-
-    handleMouseUp = ()=>{
-        this.setState({isPressed: false, mouseCircleDelta: [0, 0]});
     }
 
+    handleMouseUp = () => {
+        this.setState({ isPressed: false, mouseCircleDelta: [0, 0] });
+    }
 
     render() {
-        const {order,lastPress,isPressed,mouseXY} = this.state;
+        const { order, lastPress, isPressed, mouseXY } = this.state;
         return (
-            <div className={cx("demo2-outer")}>
-                <div className={cx("demo2")}>
-                    {order.map((_:any,key:any) => {
+            <div className={cx('demo2-outer')}>
+                <div className={cx('demo2')}>
+                    {order.map((_: any, key: any) => {
                         let style;
-                        let x:any;
-                        let y:any;
+                        let x: any;
+                        let y: any;
                         const visualPosition = order.indexOf(key);
                         if (key === lastPress && isPressed) {
                             [x, y] = mouseXY;
@@ -126,11 +125,11 @@ export default class DraggableBalls extends React.Component<P,S>{
                         }
                         return (
                             <Motion key={key} style={style}>
-                                {({translateX, translateY, scale, boxShadow}) =>
+                                {({ translateX, translateY, scale, boxShadow }) =>
                                     <div
                                         onMouseDown={this.handleMouseDown.bind(null, key, [x, y])}
                                         onTouchStart={this.handleTouchStart.bind(null, key, [x, y])}
-                                        className={cx("demo2-ball")}
+                                        className={cx('demo2-ball')}
                                         style={{
                                             backgroundColor: allColors[key],
                                             WebkitTransform: `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`,
@@ -138,13 +137,12 @@ export default class DraggableBalls extends React.Component<P,S>{
                                             zIndex: key === lastPress ? 99 : visualPosition,
                                             boxShadow: `${boxShadow}px 5px 5px rgba(0,0,0,0.5)`,
                                         }}
-                                    />
-                                }
+                                    />}
                             </Motion>
                         );
                     })}
                 </div>
             </div>
-        )
+        );
     }
 }

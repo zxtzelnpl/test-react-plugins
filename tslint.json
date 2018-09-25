@@ -29,7 +29,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      120
+      150
     ],
     "member-ordering": [
       true,
@@ -146,6 +146,7 @@
       true,
       "never"
     ],
-    "jsx-wrap-multiline": false
+    "jsx-wrap-multiline": false,
+    "jsx-no-multiline-js":false
   }
 }
