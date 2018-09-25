@@ -4,16 +4,21 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "jslint": "^0.12.0",
     "less": "^3.8.1",
     "lodash": "^4.17.11",
     "raf": "^3.4.0",
     "rc-util": "^4.5.1",
+    "photoswipe": "^4.1.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-motion": "^0.5.2"
+    "react-dom": "^16.5.2",
+    "tslint": "^5.11.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
+    "@types/jest": "^23.3.2",
     "@types/lodash": "^4.14.116",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
@@ -21,16 +26,29 @@
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
     "classnames": "^2.2.6",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
     "less-loader": "^4.1.0",
+    "lint-staged": "^7.3.0",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
+    "pre-commit": "^1.2.2",
+    "sinon": "^6.3.4",
     "style-loader": "^0.23.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-standard": "^18.2.0",
+    "ts-jest": "^23.10.1",
     "ts-loader": "^5.1.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.19.1",
@@ -39,8 +57,21 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test":"node_modules/.bin/jest",
+    "lint-staged": "lint-staged",
+    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx",
+    "lint-fix:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx --fix"
   },
+  "lint-staged": {
+    "src/**/*.tsx": [
+      "npm run lint-staged:ts"
+    ],
+    "src/**/*.less": "stylelint --syntax less"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
   "author": "",
   "license": "ISC"
 }
