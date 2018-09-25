@@ -25,4 +25,6 @@ export class Hello extends React.Component<HelloProps, {}> {
 
         return <h1 className={className}>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
     }
+
+    
 }

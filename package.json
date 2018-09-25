@@ -43,9 +43,13 @@
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
     "less": "stylelint ./src/**/*.less --syntax less",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx"
   },
   "lint-staged": {
+    "src/**/*.tsx": [
+      "npm run lint-staged:ts"
+    ],
     "src/**/*.less": "stylelint --syntax less"
   },
   "pre-commit": [
