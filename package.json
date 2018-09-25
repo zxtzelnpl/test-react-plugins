@@ -42,12 +42,15 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
-    "less" : "stylelint **/*.less --syntax less"
+    "less": "stylelint ./src/**/*.less --syntax less",
+    "lint-staged": "lint-staged"
   },
-  "lint-staged":{
-    "src/components/**/*.less": "stylelint --syntax less"
+  "lint-staged": {
+    "src/**/*.less": "stylelint --syntax less"
   },
-  "pre-commit": ["less"],
+  "pre-commit": [
+    "lint-staged"
+  ],
   "author": "",
   "license": "ISC"
 }
