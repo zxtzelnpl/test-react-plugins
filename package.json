@@ -12,8 +12,7 @@
     "photoswipe": "^4.1.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-motion": "^0.5.2"
-    "react-dom": "^16.5.2",
+    "react-motion": "^0.5.2",
     "tslint": "^5.11.0"
   },
   "devDependencies": {
@@ -58,7 +57,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
-    "test":"node_modules/.bin/jest",
+    "test": "node_modules/.bin/jest",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx",
     "lint-fix:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx --fix"
