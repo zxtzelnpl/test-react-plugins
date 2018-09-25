@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
-import * as classNames from "classnames/bind";
+import * as classNames from 'classnames/bind';
 
-const styles = require("./Hello.less");
+const styles = require('./Hello.less');
 
 let cx = classNames.bind(styles);
 

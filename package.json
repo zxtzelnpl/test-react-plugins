@@ -52,7 +52,8 @@
     "start": "webpack-dev-server",
     "test":"node_modules/.bin/jest",
     "lint-staged": "lint-staged",
-    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx"
+    "lint-staged:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx",
+    "lint-fix:ts": "node node_modules/tslint/bin/tslint src/**/*.tsx --fix"
   },
   "lint-staged": {
     "src/**/*.tsx": [
