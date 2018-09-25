@@ -103,3 +103,11 @@ declare module 'intersperse';
 declare module "raf";
 
 declare module "photoswipe";
+
+
+declare module "chai";
+declare module "enzyme";
+declare module "sinon";
+declare module "enzyme-adapter-react-16";
+
+

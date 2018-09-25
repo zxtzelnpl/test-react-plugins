@@ -19,11 +19,7 @@ export class Hello extends React.Component<HelloProps, {}> {
 
         let className = cx(['hello',
             'hello-red']);
-        console.log(styles);
-        console.log(cx);
-        console.log(className);
 
         return <h1 className={className}>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
     }
-
 }
