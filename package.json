@@ -4,9 +4,12 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "jslint": "^0.12.0",
     "less": "^3.8.1",
+    "photoswipe": "^4.1.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "tslint": "^5.11.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
@@ -23,7 +26,11 @@
     "less-loader": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.0",
+    "stylelint": "^9.5.0",
+    "stylelint-config-standard": "^18.2.0",
     "ts-loader": "^5.1.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.19.1",
@@ -33,6 +40,9 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server"
+  },
+  "pre-commit":{
+    "{site,components}/**/*.less": "stylelint --syntax less"
   },
   "author": "",
   "license": "ISC"

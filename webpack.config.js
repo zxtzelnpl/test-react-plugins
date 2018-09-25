@@ -34,7 +34,7 @@ module.exports = {
         use: [
           'style-loader',
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: {
               modules: true,
             }

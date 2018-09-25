@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as classNames from "classnames/bind";
 
-import * as styles from "./Hello.less";
+const styles = require("./Hello.less");
 
 let cx = classNames.bind(styles);
 
@@ -17,10 +17,8 @@ export class Hello extends React.Component<HelloProps, {}> {
 
     render() {
 
-        let className = cx({
-            'hello':true,
-            'hello-red':true
-        });
+        let className = cx(['hello',
+            'hello-red']);
         console.log(styles);
         console.log(cx);
         console.log(className);
