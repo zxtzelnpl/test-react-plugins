@@ -1,27 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import PhotoSwipe  from './components/PhotoSwipe';
+import Router from './router/index';
 
-// import { Hello } from "./components/Hello";
-// import SimpleTransition from './reactMotionDemos/SimpleTransition';
-// import ChatHeads from './reactMotionDemos/ChatHeads';
-// import DraggableBalls from './reactMotionDemos/DraggableBalls';
-// import RequestAndCancel from './components/RequestAndCancel'
-import ProxyComponent from './ES6Component/ProxyComponent';
-
-import * as classNames from 'classnames/bind';
-const styles = require('./index.less');
-const cx = classNames.bind(styles);
+import './index.less';
 
 const App = () => <React.Fragment>
-    {/*<Hello compiler="TypeScript" framework="React" />*/}
-    {/*<SimpleTransition compiler="TypeScript" framework="React" />*/}
-    {/*<ChatHeads compiler="TypeScript" framework="React"/>*/}
-    {/*<DraggableBalls />*/}
-    {/*<RequestAndCancel />*/}
-    {/*<PhotoSwipe />*/}
-    <ProxyComponent />
+    <Router />
 </React.Fragment>;
 
 ReactDOM.render(

@@ -74,7 +74,7 @@ module.exports = {
 
   /*在线服务*/
   devServer: {
-    contentBase: path.join(__dirname, '.'),
+    contentBase: path.join(__dirname, './dist'),
     staticOptions:{
       redirect:true
     },

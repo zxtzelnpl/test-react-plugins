@@ -15,10 +15,16 @@ export interface HelloProps {
 // State is never set so we use the '{}' type.
 export class Hello extends React.Component<HelloProps, {}> {
 
-    render() {
+    static defaultProps = {
+        compiler: 'TypeScript',
+        framework: 'React',
+    };
 
-        let className = cx(['hello',
-            'hello-red']);
+    render() {
+        let className = cx([
+            'hello',
+            'hello-red',
+        ]);
 
         return <h1 className={className}>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
     }

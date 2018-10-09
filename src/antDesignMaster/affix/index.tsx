@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import * as addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as classNames from 'classnames/bind';
 import shallowequal from 'shallowequal';
 import omit from 'omit.js';
