@@ -7,7 +7,8 @@ import PhotoSwipe  from './components/PhotoSwipe';
 // import ChatHeads from './reactMotionDemos/ChatHeads';
 // import DraggableBalls from './reactMotionDemos/DraggableBalls';
 // import RequestAndCancel from './components/RequestAndCancel'
-import ProxyComponent from './ES6Component/ProxyComponent';
+// import ProxyComponent from './ES6Component/ProxyComponent';
+import DecoratorComponent from './ES6Component/DecoratorComponent';
 
 import * as classNames from 'classnames/bind';
 const styles = require('./App.less');
@@ -15,7 +16,7 @@ const cx = classNames.bind(styles);
 
 const App = () => (
     <div className={cx('app')}>
-        <ProxyComponent />
+        <DecoratorComponent />
     </div>
 );
 
