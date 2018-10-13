@@ -1,5 +1,4 @@
 
-declare module "prop-types";
 declare module 'classnames';
 
 declare module 'rc-calendar*';
@@ -8,9 +7,9 @@ declare module 'rc-time-picker*';
 
 declare module 'rc-pagination*';
 
-declare module "object-assign";
+declare module 'object-assign';
 
-declare module "omit.js";
+declare module 'omit.js';
 
 declare module 'rc-animate';
 
@@ -18,9 +17,9 @@ declare module 'rc-util*';
 
 declare module 'shallowequal';
 
-declare module "omit.js";
+declare module 'omit.js';
 
-declare module "raf";
+declare module 'raf';
 declare module 'warning';
 
 declare module 'css-animation';
@@ -91,28 +90,26 @@ declare module 'react-lazy-load';
 
 declare module 'dom-closest';
 
-declare module "*.json" {
+declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
 }
 
-declare module "prop-types";
+declare module 'lodash/debounce';
 
-declare module "lodash/debounce";
-
-declare module "lodash/uniqBy";
+declare module 'lodash/uniqBy';
 
 declare module 'intersperse';
 
-declare module "raf";
+declare module 'raf';
 
-declare module "photoswipe";
+declare module 'photoswipe';
 
 
-declare module "chai";
-declare module "enzyme";
-declare module "sinon";
-declare module "enzyme-adapter-react-16";
+declare module 'chai';
+declare module 'enzyme';
+declare module 'sinon';
+declare module 'enzyme-adapter-react-16';
 
 
