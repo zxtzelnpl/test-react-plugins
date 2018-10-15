@@ -75,7 +75,8 @@ module.exports = {
   /*在线服务*/
   devServer: {
     contentBase: path.join(__dirname, './dist'),
-    staticOptions:{
+      historyApiFallback:true,
+      staticOptions:{
       redirect:true
     },
     compress: true,
